@@ -1,0 +1,29 @@
+
+
+div .login {
+    width: auto;
+    justify-content: space-evenly;
+
+    form {
+
+        display: contents;
+
+        label{
+            display: flex;
+            justify-content: space-between;
+            font-family: Georgia;
+            font-weight: 800;
+        }
+
+        input {
+            height: 35px;
+            width: 300px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            border-color: rgb(181, 181, 181);
+            border-width: 1px;
+            padding: 17px;
+        }
+    }
+}
+
