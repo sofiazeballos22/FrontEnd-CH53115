@@ -15,6 +15,7 @@ const Register = () => {
 
     fetch('https://ecommercech53115-production.up.railway.app/api/users/register', {  
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

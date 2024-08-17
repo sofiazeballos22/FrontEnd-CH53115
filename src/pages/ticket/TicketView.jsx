@@ -44,8 +44,8 @@ const TicketView = () => {
   }
 
   return (
-    <div>
-      <h1>Compra Finalizada</h1>
+    <div className='principal-ticket'>
+      <h1 className='text-base font-serif-georgia font-semibold md:font-serif text-red-900'>Compra Finalizada</h1>
       <div className="ticket-container">
         <div className="ticket-info">
           <p><strong>Código de Ticket:</strong> {ticket.code}</p>
@@ -66,7 +66,7 @@ const TicketView = () => {
         )}
 
         {/* Usamos Link en lugar de a para evitar recargar toda la página */}
-        <Link to="/products" className="back-button">Volver a Productos</Link>
+        <Link to="/products" className="back-button shadow-md text-2x1 mb-4 ml-4 p-4 bg-gray-300  hover:bg-gray-200 font-serif-georgia rounded w-56 text-center">Volver a Productos</Link>
       </div>
     </div>
   );

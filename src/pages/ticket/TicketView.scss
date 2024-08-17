@@ -1,0 +1,30 @@
+.principal-ticket {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    gap: 50px;
+    
+    
+    .ticket-container {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        width: 50%; 
+        border: double;
+      
+       
+
+        .ticket-info {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            height: 200px;
+            padding: 20px;
+
+            p {
+                text-align: start;
+            }
+        }
+    }
+}

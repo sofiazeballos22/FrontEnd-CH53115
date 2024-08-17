@@ -11,6 +11,7 @@ function ForgotPassword() {
     try {
       const response = await fetch('https://ecommercech53115-production.up.railway.app/api/users/forgot-password', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },

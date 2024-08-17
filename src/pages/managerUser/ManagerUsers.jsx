@@ -91,7 +91,7 @@ const ManagerUsers = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch('http://localhost:8080/api/users/logout', {
+      await fetch('https://ecommercech53115-production.up.railway.app/', {
         method: 'POST',
         credentials: 'include',
       });

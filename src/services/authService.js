@@ -5,6 +5,7 @@ export const login = async (email, password) => {
   try {
     const response = await fetch(`${API_URL}/users/login`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -30,6 +31,7 @@ export const register = async (userData) => {
   try {
     const response = await fetch(`${API_URL}/auth/register`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
