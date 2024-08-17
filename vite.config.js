@@ -11,7 +11,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://tu-backend-en-railway.com', // Cambia a tu URL de backend en Railway
+        target: 'https://ecommercech53115-production.up.railway.app', // Cambia a tu URL de backend en Railway
         changeOrigin: true,
         secure: false,
       },
