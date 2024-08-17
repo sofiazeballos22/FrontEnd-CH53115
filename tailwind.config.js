@@ -11,7 +11,7 @@ export default {
       },
       fontSize: {
         'xs': '.75rem',
-        'sm': '.875rem',
+        'sm': '2.2',
         'tiny': '1rem',
         'base': '3rem',
         'lg': '1.125rem',

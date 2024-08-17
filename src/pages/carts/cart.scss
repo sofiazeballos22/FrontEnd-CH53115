@@ -1,0 +1,92 @@
+.cart-container {
+    margin-top: 0; /* Quitar cualquier margen superior */
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%; /* Asegurar que ocupa todo el ancho */
+    max-width: 100%; /* Asegurar que ocupe el 100% sin restricciones */
+  
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    table {
+      width: 100%; /* Asegurar que la tabla ocupa todo el ancho */
+      border-collapse: collapse;
+      text-align: left;
+  
+      thead {
+        background-color: #333;
+        color: #fff;
+  
+        th {
+          padding: 10px;
+          text-align: center;
+          font-weight: 600;
+        }
+      }
+  
+      tbody {
+        tr {
+          border-bottom: 1px solid #ddd;
+  
+          td {
+            padding: 10px;
+            text-align: center;
+  
+            &:first-child {
+              text-align: left;
+            }
+          }
+  
+          input[type="number"] {
+            width: 60px; /* Aumentar el ancho del input */
+            text-align: center;
+          }
+  
+          button {
+            padding: 8px 12px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+  
+            &:hover {
+              background-color: #c82333;
+            }
+          }
+        }
+      }
+    }
+  
+    .finalize-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 20px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+  
+      &:hover {
+        background-color: #218838;
+      }
+    }
+  }
+  
+  /* Hacer que el contenedor principal esté alineado más arriba */
+  .main-container {
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin padding */
+    width: 100%; /* Asegurarse que todo el contenido ocupa el ancho completo */
+  }
+  

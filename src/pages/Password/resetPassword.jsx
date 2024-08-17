@@ -1,50 +1,54 @@
 import React, { useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
-
-function ResetPassword() {
-  const [ token, setToken ] = useState('');
-  const [ newPassword, setNewPassword ] = useState('');
-  const [ confirmPassword, setConfirmPassword ] = useState('');
-  const [ error, setError ] = useState('');
+const ResetPassword = () => {
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get('token'); // Obtén el token de los parámetros de la URL
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        if (newPassword !== confirmPassword) {
-            setError('Passwords do not match');
-            return;
-        }
+    if (newPassword !== confirmPassword) {
+      setError('Las contraseñas no coinciden');
+      return;
+    }
 
-        try {
-        const response = await fetch('api/users/reset-password', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                token,
-                newPassword,
-            }),
-        });
+    try {
+      const response = await fetch('http://localhost:8080/api/users/reset-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token, newPassword }),
+      });
 
-        if (!response.ok) {
-            throw new Error('Failed to reset password');
-        }
+      const data = await response.json();
 
-        } catch (err) {
-           setError(err.message);
-        }
-    };
+      if (response.ok) {
+        setSuccessMessage('Contraseña restablecida con éxito');
+        setError('');
+        setTimeout(() => {
+          navigate('/login'); // Redirigir al login tras restablecer la contraseña
+        }, 2000);
+      } else {
+        setError(data.error || 'Ocurrió un error al restablecer la contraseña');
+      }
+    } catch (error) {
+      setError('Error en el servidor al intentar restablecer la contraseña');
+    }
+  };
 
   return (
-    <div className='register flex justify-center flex-col items-center min-h-screen'>
-      <h1 className='text-base font-serif-georgia font-semibold md:font-serif text-red-900'>Reset Your Password</h1>
-      <form className='h-64 flex  flex-col justify-between'
-      onSubmit={handleSubmit}>
-        <input type="hidden" value={token} />
-
+    <div className="reset-password-container">
+      <h1>Restablecer Contraseña</h1>
+      <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="newPassword">New Password:</label>
+          <label htmlFor="newPassword">Nueva Contraseña:</label>
           <input
             type="password"
             id="newPassword"
@@ -53,9 +57,8 @@ function ResetPassword() {
             required
           />
         </div>
-
         <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <label htmlFor="confirmPassword">Confirmar Contraseña:</label>
           <input
             type="password"
             id="confirmPassword"
@@ -64,14 +67,13 @@ function ResetPassword() {
             required
           />
         </div>
-
-        <button className='shadow-md text-2x1 mt-4 p-2 bg-gray-200 font-serif-georgia rounded'
-        type="submit">Reset Password</button>
-
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <button type="submit">Restablecer Contraseña</button>
       </form>
+
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
     </div>
   );
-}
+};
 
 export default ResetPassword;

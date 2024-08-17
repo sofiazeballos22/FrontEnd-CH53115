@@ -1,0 +1,36 @@
+div .principal {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+
+
+
+    table {
+        width: 100%;
+        
+        thead {
+            margin-bottom: 20px;
+
+            tr {
+               
+                th {
+                    padding: 10px;
+                }
+            }
+        }
+
+        tbody {
+            text-align: center; 
+            
+
+            tr, td {
+                padding: 10px 0px 10px 0px;
+            }
+
+            button {
+                margin-left: 20px;
+            }
+        }
+        
+    }
+}

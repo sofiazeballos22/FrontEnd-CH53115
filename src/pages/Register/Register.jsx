@@ -1,20 +1,19 @@
-// src/components/Register.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../Register/Register.scss'
-
+import '../Register/Register.scss';
 
 const Register = () => {
-  const [ firstName, setFirstName ] = useState('');
-  const [ lastName, setLastName ] = useState('');
-  const [ email, setEmail ] = useState('');
-  const [ age, setAge ] = useState('');
-  const [ password, setPassword ] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [age, setAge] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('/api/users/register', {
+
+    fetch('http://localhost:8080/api/users/register', {  
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -23,17 +22,19 @@ const Register = () => {
     })
       .then((response) => {
         if (response.ok) {
-          navigate('/login');
+          navigate('/login');  // Redirigir al usuario a la página de inicio de sesión
         } else {
-          alert('Registration failed');
+          alert('Registro fallido');
         }
+      })
+      .catch((error) => {
+        console.error('Error al registrar al usuario:', error);
       });
   };
 
   return (
-    <div className=' register
-    flex justify-center flex-col items-center min-h-screen'>
-      <h1 className='text-base font-serif-georgia font-semibold md:font-serif text-red-900' >Register</h1>
+    <div className="register flex justify-center flex-col items-center min-h-screen">
+      <h1 className="text-base font-serif-georgia font-semibold md:font-serif text-red-900">Register</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="first_name">First Name:</label>
         <input
@@ -85,8 +86,9 @@ const Register = () => {
           required
         />
         <br />
-        <button className='shadow-md text-2x1 mt-4 p-2 bg-gray-200 font-serif-georgia rounded'
-        type="submit">Register</button>
+        <button className="shadow-md text-2x1 mt-4 p-2 bg-gray-200 font-serif-georgia rounded" type="submit">
+          Register
+        </button>
       </form>
     </div>
   );
