@@ -1,27 +1,17 @@
-
-// src/App.jsx
 import React from 'react';
-import { BrowserRouter as BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom'; // Solo uno
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-//import Login from './components/Login';
-//import Products from './components/Products';
-import Register from './pages/Register/Register'; 
 import './styles/global.css';
 
-import { UserProvider } from './context/UserContext';  // Importa el contexto
-import AppRouter from './routes/router'; // Importas el archivo que contiene las rutas
-
-
+import { UserProvider } from './context/UserContext';
+import AppRouter from './routes/router';
 
 function App() {
   return (
     <UserProvider>
-    <Router>
-    
-      <AppRouter />
-    
-    </Router>
+      <Router>
+        <AppRouter />
+      </Router>
     </UserProvider>
   );
 }
