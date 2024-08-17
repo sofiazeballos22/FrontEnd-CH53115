@@ -19,7 +19,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/api/users/reset-password', {
+      const response = await fetch('https://ecommercech53115-production.up.railway.app/api/users/reset-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

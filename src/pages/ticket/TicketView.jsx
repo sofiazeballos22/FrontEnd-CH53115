@@ -12,7 +12,7 @@ const TicketView = () => {
   useEffect(() => {
     const fetchTicket = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/tickets/${ticketId}`, {
+        const response = await fetch(`https://ecommercech53115-production.up.railway.app/api/tickets/${ticketId}`, {
           credentials: 'include',
         });
         if (!response.ok) {

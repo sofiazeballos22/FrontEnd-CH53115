@@ -14,7 +14,7 @@ function Products() {
     // Función para obtener los productos desde el backend
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/products');
+        const response = await fetch('https://ecommercech53115-production.up.railway.app/api/products');
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }

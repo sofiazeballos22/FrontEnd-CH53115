@@ -13,7 +13,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('http://localhost:8080/api/users/register', {  
+    fetch('https://ecommercech53115-production.up.railway.app/api/users/register', {  
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

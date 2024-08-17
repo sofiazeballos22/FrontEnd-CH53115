@@ -10,7 +10,11 @@ function CartView() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/carts/user-cart', { credentials: 'include' });
+
+        const response = await fetch('https://ecommercech53115-production.up.railway.app/api/carts/user-cart',
+
+      //  const response = await fetch('http://localhost:8080/api/carts/user-cart',
+           { credentials: 'include' });
         if (!response.ok) throw new Error('Failed to fetch cart');
         const data = await response.json();
         console.log('Datos del carrito:', data); // Verificar si el ID está presente

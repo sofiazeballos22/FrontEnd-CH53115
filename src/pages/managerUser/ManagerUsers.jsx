@@ -12,7 +12,7 @@ const ManagerUsers = () => {
 
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/users/admin/manage-users', {
+        const response = await fetch('https://ecommercech53115-production.up.railway.app/api/users/admin/manage-users', {
           credentials: 'include',
         });
         if (!response.ok) {
@@ -31,7 +31,7 @@ const ManagerUsers = () => {
   const handleDeleteInactiveUsers = async () => {
     if (window.confirm('¿Estás seguro de que quieres borrar los usuarios inactivos?')) {
       try {
-        const response = await fetch('http://localhost:8080/api/users', {
+        const response = await fetch('https://ecommercech53115-production.up.railway.app/api/users', {
           method: 'DELETE',
           credentials: 'include',
           headers: {
@@ -54,7 +54,7 @@ const ManagerUsers = () => {
 
   const handleChangeUserRole = async (userId) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/users/premium/${userId}`, {
+      const response = await fetch(`https://ecommercech53115-production.up.railway.app/api/users/premium/${userId}`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -73,7 +73,7 @@ const ManagerUsers = () => {
   const handleDeleteUser = async (userId) => {
     if (window.confirm('¿Estás seguro de que quieres eliminar este usuario?')) {
       try {
-        const response = await fetch(`http://localhost:8080/api/users/delete/${userId}`, {
+        const response = await fetch(`https://ecommercech53115-production.up.railway.app/api/users/delete/${userId}`, {
           method: 'POST',
           credentials: 'include',
         });

@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:8080/api';  // La URL del backend
+//const API_URL = 'http://localhost:8080/api';  // La URL del backend
+const API_URL = import.meta.env.VITE_API_URL;  // Obtén la URL desde la variable de entorno
 
 export const addToCart = async (productId) => {
   try {
